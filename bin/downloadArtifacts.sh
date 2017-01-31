@@ -57,7 +57,9 @@ while [ "$COUNTER" -le "$ASSET_LIST_LENGTH" ]; do
       echo "Using GitHub token"
       HEADER="Authorization: Token $GITHUB_OAUTH_TOKEN"
       # Get the artifact
-      curl -H "$HEADER" -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
+      #curl -H "$HEADER" -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
+      #Trying this method instead
+      curl -L $ASSET_URL\?access_token=$GH_OAUTH_TOKEN  -H 'Accept: application/octet-stream' > $ASSET_NAME
     else
       # Get the artifact
       curl -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
