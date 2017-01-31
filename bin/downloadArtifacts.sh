@@ -55,11 +55,10 @@ while [ "$COUNTER" -le "$ASSET_LIST_LENGTH" ]; do
     # Support for GHE
     if [ -n "$GITHUB_OAUTH_TOKEN" ]; then
       echo "Using GitHub token"
-      HEADER="Authorization: Token $GITHUB_OAUTH_TOKEN"
       # Get the artifact
       #curl -H "$HEADER" -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
       #Trying this method instead
-      curl -L $ASSET_URL\?access_token=$GH_OAUTH_TOKEN  -H 'Accept: application/octet-stream' > $ASSET_NAME
+      curl -L $ASSET_URL\?access_token=$GITHUB_OAUTH_TOKEN  -H 'Accept: application/octet-stream' > $ASSET_NAME
     else
       # Get the artifact
       curl -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
@@ -72,9 +71,3 @@ while [ "$COUNTER" -le "$ASSET_LIST_LENGTH" ]; do
     rm $ASSET_NAME
   fi
 done
-
-#debug
-echo "pwd"
-pwd
-echo "ls -halt"
-ls -halt
