@@ -1,0 +1,32 @@
+sudo: required
+language: generic
+
+notifications:
+  email: false
+
+#env:
+  # OCTOKIT_API_URL="http(s)://"GITHUB ENTERPRISE HOSTNAME"/api/v3/" if not using public
+  # GITHUB_OAUTH_TOKEN
+  # APP_REPO_OWNER
+  # APP_REPO_NAME
+  # BM_USER
+  # BM_PASS
+  # BM_SPACE
+  # BM_ORGANIZATION
+
+
+script:
+  - echo "Task here" #Just do a task here
+
+before_deploy:
+  - bash bin/cfSetup.sh             #Install cf
+  - bash bin/ansibleSetup.sh        #Install ansible
+  - bash bin/downloadArtifacts.sh   #Get the files to deploy
+
+deploy:
+    - provider: script
+      skip_cleanup: true
+      script: bin/deploy.sh         #run ansible playbook to deploy app to bluemix
+      on:
+         branch: master
+
