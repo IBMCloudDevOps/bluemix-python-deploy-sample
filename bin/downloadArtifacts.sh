@@ -14,10 +14,10 @@ RELEASE_URL="$GH_BASE_URL"repos"/$APP_REPO_OWNER/$APP_REPO_NAME/releases/latest"
 # Get the release data
 echo "curling $RELEASE_URL"
 
-# If you are getting rate limited or using GHE, add a GH_token to authenticate
-if [ -n "$GH_TOKEN" ]; then
+# If you are getting rate limited or using GHE, add a GITHUB_OAUTH_TOKEN to authenticate
+if [ -n "$GITHUB_OAUTH_TOKEN" ]; then
   echo "Using GitHub token"
-  HEADER="Authorization: Token $GH_TOKEN"
+  HEADER="Authorization: Token $GITHUB_OAUTH_TOKEN"
   RELEASE=$(curl -H "$HEADER" $RELEASE_URL)
 else
   echo "Not using GitHub token"
@@ -53,9 +53,9 @@ while [ "$COUNTER" -le "$ASSET_LIST_LENGTH" ]; do
     echo "curl -L $ASSET_URL > $ASSET_NAME"
 
     # Support for GHE
-    if [ -n "$GH_TOKEN" ]; then
+    if [ -n "$GITHUB_OAUTH_TOKEN" ]; then
       echo "Using GitHub token"
-      HEADER="Authorization: Token $GH_TOKEN"
+      HEADER="Authorization: Token $GITHUB_OAUTH_TOKEN"
       # Get the artifact
       curl -H "$HEADER" -H "Accept: application/octet-stream" -L $ASSET_URL > $ASSET_NAME
     else
