@@ -1,3 +1,8 @@
+# Bluemix Python Deploy Sample
+
+The deployment repo that accompanies the recipe: [Separating Continuous Integration from Continuous Deployment using GitHub and Travis CI](https://developer.ibm.com/recipes/tutorials/separating-continuous-integration-from-continuous-deployment-using-github-and-travis-ci/)
+
+## Properties
 Deploys an application from Travis CI to Bluemix
 Set the following variables in travis to use:
   - ```GITHUB_OAUTH_TOKEN``` - Your GitHub OAuth token
@@ -7,9 +12,3 @@ Set the following variables in travis to use:
   - ```BLUEMIX_PASS``` - The password for that Bluemix user
   - ```BLUEMIX_ORGANIZATION``` - The Bluemix organization to deploy to
   - ```BLUEMIX_SPACE``` - The Bluemix space to deploy to
-
-
-
-
-
-<br /><img style="border: 1px solid black;"  src="/recipes/wp-content/uploads/sites/41/2017/02/04-new-token-screen.png" alt="GitHub Token Settings" width="800" height="1139" />
