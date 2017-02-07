@@ -7,3 +7,9 @@ Set the following variables in travis to use:
   - ```BLUEMIX_PASS``` - The password for that Bluemix user
   - ```BLUEMIX_ORGANIZATION``` - The Bluemix organization to deploy to
   - ```BLUEMIX_SPACE``` - The Bluemix space to deploy to
+
+
+
+
+
+<br /><img style="border: 1px solid black;"  src="/recipes/wp-content/uploads/sites/41/2017/02/04-new-token-screen.png" alt="GitHub Token Settings" width="800" height="1139" />
